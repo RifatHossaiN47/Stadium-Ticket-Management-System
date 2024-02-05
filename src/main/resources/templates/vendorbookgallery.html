@@ -1,0 +1,405 @@
+<!--
+      Color:
+      ----------------
+      Primary:blue
+      secondary:gray
+      success: green
+      danger: red
+      warning: yellow
+      info: cyan
+      light: white
+      dark: black
+
+      Device size:::
+      ----------------------------
+            Extra small-None-<576px
+            phone-Small-sm-≥576px
+            tablet-Medium-md-≥768px
+             small laptop-Large-lg-≥992px
+             desktop-Extra large-xl-≥1200px
+             super computer,tv-Extra extra large-xxl-≥1400px
+             -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Gallery</title>
+    <link rel="stylesheet" th:href="@{/css/st.css}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/112eea2fba.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--nav start-->
+    <nav
+      class="navbar navbar-expand-lg sticky-top"
+      style="background-color: #006a4e"
+    >
+      <div class="container-fluid justify-content-between">
+        <a class="navbar-brand" th:href="@{/main_dashboard_vendor}">
+          <img
+            th:src="@{/images/aa.png}"
+            title="Stadium Management"
+            alt="Stadium Management"
+            height="60px"
+            width="170px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse py-4 py-lg-0"
+          id="navbarSupportedContent"
+          style="font-weight: bold"
+        >
+          <ul class="navbar-nav ms-lg-5 me-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/vendor/home}"
+                >Home</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/vendor/order-history}"
+                >Cart</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/logout}"
+                >Logout</a
+              >
+            </li>
+          </ul>
+          <a th:href="@{/vendor/setting}" target="_parent"
+            ><i class="fa-solid fa-circle-user me-4 fs-1 text-dark"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+
+    <!--nav end -->
+    <div
+      class="container-fluid justify-content-center"
+      style="background-color: #170f40"
+    >
+      <div class="row justify-content-center align-items-center">
+        <div class="col-8 mt-4 text-center">
+          <img
+            class="img-fluid"
+            th:src="@{/images/sd.png}"
+            height="250px"
+            width="250px"
+            title="companylogo"
+          />
+        </div>
+        <div class="col-8 text-center text-light">
+          <h2 id="title" th:text="${program.eventTitle}"></h2>
+        </div>
+        <div
+          class="col-8 text-light mt-3"
+          style="display: flex; flex-direction: row; justify-content: center"
+        >
+          <!-- df -->
+          <div class="mx-4" style="display: flex">
+            <div class="box mx-1"></div>
+            <label>Available</label>
+          </div>
+          <div class="mx-4" style="display: flex">
+            <div class="box bg-warning mx-1"></div>
+            <span>Selected</span>
+          </div>
+          <div class="mx-4" style="display: flex">
+            <div class="box bg-danger mx-1"></div>
+            <span>Occupied</span>
+          </div>
+        </div>
+      </div>
+      <form th:action="@{/vendor/book-gallery}" method="post">
+        <div
+          class="row justify-content-center mt-5 text-center align-items-center"
+        >
+          <div class="col-7 text-light mb-2 d-flex">
+            <h4 class="boxg m-3 my-4">Gallery A :</h4>
+            <div class="box1 mx-4" style="margin-left: 160px !important">
+              <input
+                type="checkbox"
+                id="aseat1"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-A:First Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-A:First Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-A:First Wing')}"
+                value="Gallery-A:First Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="aseat1">First Wing</label>
+            </div>
+            <div class="box1 mx-5">
+              <input
+                type="checkbox"
+                id="aseat2"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-A:Second Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-A:Second Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-A:Second Wing')}"
+                value="Gallery-A:Second Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="aseat2"
+                >Second Wing</label
+              >
+            </div>
+            <div class="box1 mx-5">
+              <input
+                type="checkbox"
+                id="aseat3"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-A:Third Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-A:Third Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-A:Third Wing')}"
+                value="Gallery-A:Third Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="aseat3">Third Wing</label>
+            </div>
+          </div>
+          <div class="col-7 d-flex justify-content-between text-light mb-2">
+            <h4 class="boxg m-3" style="margin-left: 15px; !important">
+              Gallery B :
+            </h4>
+            <div class="box1" style="margin-right: 360px; !important">
+              <input
+                type="checkbox"
+                id="bseat1"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-B:Left Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-B:Left Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-B:Left Wing')}"
+                value="Gallery-B:Left Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="bseat1">Left Wing</label>
+            </div>
+            <div class="box1" style="margin-right: 170px !important">
+              <input
+                type="checkbox"
+                id="bseat2"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-B:Right Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-B:Right Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-B:Right Wing')}"
+                value="Gallery-B:Right Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="bseat2">Right Wing</label>
+            </div>
+          </div>
+          <div class="col-7 d-flex justify-content-between text-light mb-2">
+            <h4 class="boxg m-3" style="margin-left: 15px; !important">
+              Gallery C :
+            </h4>
+            <div class="box1" style="margin-right: 360px; !important">
+              <input
+                type="checkbox"
+                id="cseat1"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-C:seat1')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-C:Left Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-C:Left Wing')}"
+                value="Gallery-C:Left Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="cseat1">Left Wing</label>
+            </div>
+            <div class="box1" style="margin-right: 170px !important">
+              <input
+                type="checkbox"
+                id="cseat2"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-C:Right Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-C:Right Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-C:Right Wing')}"
+                value="Gallery-C:Right Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="cseat2">Right Wing</label>
+            </div>
+          </div>
+          <div class="col-7 d-flex justify-content-between text-light mb-2">
+            <h4 class="boxg m-3" style="margin-left: 15px; !important">
+              Gallery D :
+            </h4>
+            <div class="box1" style="margin-right: 360px; !important">
+              <input
+                type="checkbox"
+                id="dseat1"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-D:Left Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-D:Left Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-D:Left Wing')}"
+                value="Gallery-D:Left Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="dseat1">Left Wing</label>
+            </div>
+            <div class="box1" style="margin-right: 170px !important">
+              <input
+                type="checkbox"
+                id="dseat2"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-D:Right Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-D:Right Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-D:Right Wing')}"
+                value="Gallery-D:Right Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="dseat2">Right Wing</label>
+            </div>
+          </div>
+          <div class="col-7 d-flex justify-content-between text-light mb-2">
+            <h4 class="boxg m-3" style="margin-left: 15px; !important">
+              Gallery E :
+            </h4>
+            <div class="box1" style="margin-right: 360px; !important">
+              <input
+                type="checkbox"
+                id="eseat1"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-E:Left Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-E:Left Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-E:Left Wing')}"
+                value="Gallery-E:Left Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="eseat1">Left Wing</label>
+            </div>
+            <div class="box1" style="margin-right: 170px !important">
+              <input
+                type="checkbox"
+                id="eseat2"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-E:Right Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-E:Right Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-E:Right Wing')}"
+                value="Gallery-E:Right Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="eseat2">Right Wing</label>
+            </div>
+          </div>
+          <div class="col-7 text-light mb-2 d-flex pt-2">
+            <h4 class="boxg m-3 my-4">Gallery F :</h4>
+            <div class="box1 mx-4" style="margin-left: 160px !important">
+              <input
+                type="checkbox"
+                id="fseat1"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-F:First Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-F:First Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-F:First Wing')}"
+                value="Gallery-F:First Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="fseat1">First Wing</label>
+            </div>
+            <div class="box1 mx-5">
+              <input
+                type="checkbox"
+                id="fseat2"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-F:Second Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-F:Second Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-F:Second Wing')}"
+                value="Gallery-F:Second Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="fseat2"
+                >Second Wing</label
+              >
+            </div>
+            <div class="box1 mx-5">
+              <input
+                type="checkbox"
+                id="fseat3"
+                autocomplete="off"
+                hidden="hidden"
+                th:classappend="${#lists.contains(tname, 'Gallery-F:Third Wing')} ? 'box1' : 'mybtn'"
+                th:checked="${#lists.contains(tname, 'Gallery-F:Third Wing')}"
+                th:disabled="${#lists.contains(tname, 'Gallery-F:Third Wing')}"
+                value="Gallery-F:Third Wing"
+                name="seatNo[]"
+              /><label class="btn btn-secondary" for="fseat3">Third Wing</label>
+            </div>
+          </div>
+          <div class="col-7">
+            <h5 class="mt-4 text-light">
+              You have selected <span id="totalselected">0</span> Gallery Wing
+              for a price of $<span id="totalprice">0</span>
+            </h5>
+            <hr />
+            <h3 class="text-success" th:if="${msg}" th:text="${msg}"></h3>
+            <button
+              type="submit"
+              class="btn btn-outline-danger my-3 w-100 float-right"
+            >
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const mySeats = document.getElementById("totalselected");
+      const myPrice = document.getElementById("totalprice");
+      var total = 0;
+      var seat = 0;
+      const checkBx = document.querySelectorAll('input[type="checkbox"]');
+      for (var i = 0; i < checkBx.length; i++) {
+        checkBx[i].addEventListener("click", displayValue);
+      }
+      function displayValue(e) {
+        var myValue = 50000;
+        if (e.target.checked == true) {
+          seat += 1;
+
+          total += myValue;
+        } else {
+          seat -= 1;
+          total -= myValue;
+        }
+        mySeats.innerHTML = seat;
+        myPrice.innerHTML = total;
+      }
+    </script>
+  </body>
+</html>

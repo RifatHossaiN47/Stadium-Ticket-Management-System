@@ -1,0 +1,804 @@
+<!--
+      Color:
+      ----------------
+      Primary:blue
+      secondary:gray
+      success: green
+      danger: red
+      warning: yellow
+      info: cyan
+      light: white
+      dark: black
+
+      Device size:::
+      ----------------------------
+            Extra small-None-<576px
+            phone-Small-sm-≥576px
+            tablet-Medium-md-≥768px
+             small laptop-Large-lg-≥992px
+             desktop-Extra large-xl-≥1200px
+             super computer,tv-Extra extra large-xxl-≥1400px
+             -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tricket sports</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/112eea2fba.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .hh {
+        background-color: #383737;
+        border-radius: 20px;
+        transition: background-color 0.5s, transform 0.5s;
+      }
+      .hh:hover {
+        background-color: rgb(255, 255, 255);
+        color: #000000;
+        transform: translateY(-15px);
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg sticky-top"
+      style="background-color: #006a4e"
+    >
+      <div class="container-fluid justify-content-between">
+        <a class="navbar-brand" th:href="@{/}">
+          <img
+            th:src="@{/images/aa.png}"
+            title="Stadium Management"
+            alt="Stadium Management"
+            height="60px"
+            width="170px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse py-4 py-lg-0"
+          id="navbarSupportedContent"
+          style="font-weight: bold"
+        >
+          <ul class="navbar-nav ms-lg-5 me-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/register}"
+                >Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/loginForm}"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/eventOrg_LoginForm}"
+                >Organize Event</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/vendor/loginForm}"
+                >Vendor Section</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--dfdfdff-->
+    <div
+      id="carouselExampleInterval"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide-to="4"
+          aria-label="Slide 5"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide-to="5"
+          aria-label="Slide 6"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="1000">
+          <img
+            th:src="@{/images/icc.webp}"
+            class="d-block w-100"
+            style="height: 620px"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="1000">
+          <img
+            th:src="@{/images/bd.jpg}"
+            class="d-block w-100"
+            style="height: 620px"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="1000">
+          <img
+            th:src="@{/images/bdvsind.jpg}"
+            class="d-block w-100"
+            style="height: 620px"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="1000">
+          <img
+            th:src="@{/images/engvssri.jpg}"
+            class="d-block w-100"
+            style="height: 620px"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="1000">
+          <img
+            th:src="@{/images/stadium.jpg}"
+            class="d-block w-100"
+            style="height: 620px"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="1000">
+          <img
+            th:src="@{/images/concert.avif}"
+            class="d-block w-100"
+            style="height: 620px"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleInterval"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!--dfdfdf-->
+    <div class="container-fluid">
+      <div class="row bg-dark p-4" id="Service">
+        <div class="col-12 text-center text-light mt-5">
+          <span class="display-2">Our Services</span>
+        </div>
+      </div>
+      <div class="row justify-content-evenly bg-dark text-light p-3">
+        <div class="col-lg-auto text-center mt-3 hh p-3 mb-5">
+          <i class="fa-solid fa-ticket" style="font-size: 90px"></i>
+          <p class="fs-3">Online Ticket Sales</p>
+          <h6>
+            We provide online ticket selling<br />
+            system for customers for sports<br />
+            and events on renowned stadium
+          </h6>
+          <a
+            href="#"
+            class="btn btn-primary"
+            style="text-decoration: none"
+            target="_blank"
+            >Learn more</a
+          >
+        </div>
+        <div class="col-lg-auto text-center mt-3 hh p-3 mb-5">
+          <i class="fa-solid fa-truck-field" style="font-size: 90px"></i>
+          <p class="fs-3">Vendor Co-ordination</p>
+          <p class="fs-6">
+            Manage and coordinates various<br />
+            vendors and suppliers that provide<br />
+            goods and services during events<br />
+            hosted at stadiums.
+          </p>
+          <a
+            href="#"
+            class="btn btn-success"
+            style="text-decoration: none"
+            target="_blank"
+            >Learn more</a
+          >
+        </div>
+        <div class="col-lg-auto text-center mt-3 hh p-3 mb-5">
+          <i class="fa-solid fa-calendar-days" style="font-size: 90px"></i>
+          <p class="fs-3">Host Events</p>
+          <p class="fs-6">
+            Organizations or individuals can<br />
+            host events on available schedule<br />
+            provided in the event section
+          </p>
+          <a href="#" class="btn btn-secondary" style="text-decoration: none"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--dfdfdf-->
+      <div
+        class="row justify-content-evenly align-items-center"
+        style="background-color: aliceblue"
+      >
+        <div class="col-12 my-3 text-center text-dark">
+          <h1 class="display-3">Notice</h1>
+        </div>
+        <div class="col-lg-3" th:each="program : ${Programs}">
+			<form th:action="@{/booking}" method="get">
+				<div class="card mb-3">
+              <img th:src="@{${'images/'+program.image}}" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title" th:text="${program.eventTitle}"></h5>
+               
+                <p class="card-text" th:text="'This program duration is ' + ${program.duration}">
+                </p>
+                <p class="fw-bold">
+					Don't miss this exclusive event. Book your ticket now!!
+                </p>
+                <p class="card-text">
+                  <small class="text-body-secondary"
+                    th:text="'Event Date: ' + ${program.date}"></small
+                  >
+                </p>
+                <button class="btn btn-primary" type="submit" name="progId" th:value="${program.progId}">Book now</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-12 justify-content-center text-center my-5">
+          <button class="btn btn-outline-danger">See More</button>
+        </div>
+      </div>
+      <!--dfdfdf-->
+
+      <!--dfdfdf-->
+      <div class="row justify-content-evenly align-items-center py-5">
+        <div class="col-12 text-center">
+          <h1 class="mb-5 ms-lg-5 text-dark" style="font-size: 60px">
+            Payment Systems
+          </h1>
+        </div>
+        <div class="col-lg-5 ps-5 py-4">
+          <h3 class="mb-5 ms-lg-5 text-dark">
+            Instructions to Purchase Tickets
+          </h3>
+
+          <!--dfdfd-->
+          <ul type="none">
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              Tickets can be bought online ten days in advance.
+            </li>
+            <br />
+            <li>
+              <i class="fa fa-arrow-right"></i>
+
+              You can pay for the tickets using mobile financial services:
+              bKash, Nagad or Rocket Other payment options will be available
+              soon.
+            </li>
+            <br />
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              In case of payment or transaction failure, the deducted amount
+              would be refunded by your MFS provider within 8 business days.
+            </li>
+            <br />
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              In case money has been deducted from your mobile wallet but you
+              have not received a ticket confirmation, the deducted amount would
+              be refunded by your MFS provider within 8 business days.
+            </li>
+            <br />
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              If you have not received your ticket copy in email, kindly check
+              your Spam / Junk folder.
+            </li>
+            <br />
+            <li>
+              <i class="fa fa-arrow-right"></i>
+              In case of customers use fake website which claim to sell tickets
+              of this stadium, the authorities will not take any liability.
+            </li>
+          </ul>
+
+          <!--dfdf-->
+          <p class="mb-4 ms-lg-5 text-dark"></p>
+          <button type="button" class="btn btn-warning mt-3 ms-lg-5" rounded>
+            Learn More
+          </button>
+        </div>
+        <div class="col-lg-4 col-6">
+          <div class="row justify-content-between">
+            <div class="col-12 money-logo m-2 text-center">
+              <img
+                th:src="@{/images/bk.png}"
+                alt="Bkash a payment method"
+                height="100px"
+                width="150px"
+              />
+            </div>
+            <div class="col-12 money-logo m-2 text-center">
+              <img
+                th:src="@{/images/ngg.png}"
+                alt="Nagad a payment method"
+                height="100px"
+                width="150px"
+              />
+            </div>
+            <div class="col-12 money-logo mt-5 text-center">
+              <img
+                th:src="@{/images/rk.png}"
+                class="mx-auto"
+                alt="Rocket a payment method"
+                height="100px"
+                width="150px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row justify-content-evenly py-5"
+        style="background-color: rgb(239, 204, 9)"
+      >
+        <div class="col-lg-auto text-center text-light">
+          <i
+            class="fa-sharp fa-solid fa-ticket mt-4"
+            style="font-size: 100px; font-weight: bold"
+          ></i>
+          <p
+            class="ts-5"
+            style="
+              font-weight: bold;
+              font-size: 30px;
+              font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman',
+                serif;
+            "
+          >
+            <span style="font-size: 50px"> +7793</span><br />Tickets sold online
+          </p>
+        </div>
+        <div class="col-lg-auto text-center text-light">
+          <i
+            class="fa-regular fa-store mt-4"
+            style="font-size: 100px; font-weight: bold"
+          ></i>
+          <p
+            class="ts-5"
+            style="
+              font-weight: bold;
+              font-size: 30px;
+              font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman',
+                serif;
+            "
+          >
+            <span style="font-size: 50px"> +50</span><br />vendors engaged
+          </p>
+        </div>
+        <div class="col-lg-auto text-center text-light">
+          <i
+            class="fa-solid fa-calendar-plus mt-4"
+            style="font-size: 100px; font-weight: bold"
+          ></i>
+          <p
+            class="ts-5"
+            style="
+              font-weight: bold;
+              font-size: 30px;
+              font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman',
+                serif;
+            "
+          >
+            <span style="font-size: 50px"> +400</span><br />Events organized
+          </p>
+        </div>
+      </div>
+      <div class="row justify-content-center py-5 px-4 mb-5">
+        <div class="col-12 text-center py-4 px-3">
+          <h1 class="mb-5" style="font-weight: bold">News</h1>
+          <p class="mb-4" style="font-size: 20px">
+            Reports and highlights about Recent Sports and events.
+          </p>
+        </div>
+        <div class="col-lg-auto my-4">
+          <div
+            class="card mx-auto"
+            style="width: 18rem; box-shadow: -1px 1px 5px 0.01px black"
+          >
+            <img
+              th:src="@{/images/engvssri.jpg}"
+              class="card-img-top"
+              height="200px"
+              width="400px"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title" id="df">
+                ICC Men's T20 world Cup<br />
+                England vs Sri Lanka
+              </h5>
+              <label for="df" class="mb-3" style="color: rgb(14, 217, 217)"
+                >Nov 01,2023</label
+              >
+              <p class="card-text">
+                England will face Sri Lanka for semi final in ICC world Cup on
+                november.Ticket's available online
+              </p>
+              <a
+                href="#"
+                class="text-decoration-none mt-5"
+                style="font-weight: bold; color: rgb(9, 222, 222)"
+                >Read More+</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-auto justify-content-center my-4">
+          <div
+            class="card mx-auto"
+            style="width: 18rem; box-shadow: -1px 1px 5px 0.01px black"
+          >
+            <img
+              th:src="@{images/nnn.jpg}"
+              class="card-img-top"
+              alt="..."
+              height="200px"
+              width="200px"
+            />
+            <div class="card-body">
+              <h5 class="card-title" id="df">India lost against Bangladesh</h5>
+              <label for="df" class="mb-3" style="color: rgb(14, 217, 217)"
+                >September 16,2023</label
+              >
+              <p class="card-text">
+                India lost in T20 world cup against Bangladesh in selection
+                round for 12 runs in 4 balls.
+              </p>
+              <a
+                href="#"
+                class="text-decoration-none mt-5"
+                style="font-weight: bold; color: rgb(9, 222, 222)"
+                >Read More+</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-auto justify-content-center my-4">
+          <div
+            class="card mx-auto"
+            style="width: 18rem; box-shadow: -1px 1px 5px 0.01px black"
+          >
+            <img
+              th:src="@{/images/bb.jpg}"
+              class="card-img-top"
+              alt="..."
+              height="200px"
+              width="200px"
+            />
+            <div class="card-body">
+              <h5 class="card-title" id="df">argentina wins FIFA world cup</h5>
+              <label for="df" class="mb-3" style="color: rgb(14, 217, 217)"
+                >December 18,2022</label
+              >
+              <p class="card-text">
+                Argentina wins fifa world cup against france at penalty
+              </p>
+              <a
+                href="#"
+                class="text-decoration-none mt-5"
+                style="font-weight: bold; color: rgb(9, 222, 222)"
+                >Read More+</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid" id="gg">
+       <!-- <div
+          class="row my-4 rounded justify-content-evenly"
+          style="background-color: rgb(230, 234, 237)"
+        >
+          <div class="col-lg-5 justify-content-center">
+            <h2 class="mb-4 mt-3 tw-bold">Review & Complaints</h2>
+            <div class="my-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Type your name..."
+              />
+            </div>
+            <div class="my-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+              />
+              <div class="form-text">
+                We'll never share your email with anyoe else.
+              </div>
+            </div>
+            <div class="my-3">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Message</label
+              >
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
+            </div>
+            <button type="button" class="btn btn-outline-danger mb-3">
+              Submit
+            </button>
+          </div>
+          <div class="col-lg-5 justify-content-center">
+            <h2 class="mb-4 mt-3 tw-bold">Headquarters:</h2>
+            <p class="ts-6 mb-3">
+              Pahartoli,Raozan<br />Chittagong<br />
+              <i class="bi bi-telephone"></i> :01518914342
+            </p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29496.942256308546!2d91.9616758!3d22.4622078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad2fca34ae5549%3A0x35c88a37b3e90e97!2sChittagong%20University%20of%20Engineering%20and%20Technology%20(CUET)!5e0!3m2!1sen!2sbd!4v1694897196264!5m2!1sen!2sbd"
+              width="100%"
+              height="250"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>-->
+      <div class="row text-center my-5 justify-content-center">
+        <h2 class="tw-bloder">FAQ</h2>
+        <div class="col-9 my-3">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  I’m not comfortable buying online. Are scalpers still a thing?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  Scalpers are those who resell tickets for a large or quick
+                  profit. Scalpers often sell stolen or fake tickets. Nowadays,
+                  scalpers operate both offline and online. There is a greater
+                  number of scams happening online because it is usually illegal
+                  to scalp tickets at the event. Scalping bots buy up great
+                  numbers of tickets to later resell marked up. In 2016, the
+                  Better Online Tickets Sale Act was passed by Congress to curb
+                  this new form of mass resale. Online ticket marketplaces
+                  provide extra protection like refund policies in case the
+                  tickets you bought were actually fake.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Are tickets really that hard to get?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  How difficult or easy it is to get tickets for an event
+                  depends on how popular the event is. It may be very difficult
+                  to buy tickets for the biggest NFL games of the year like the
+                  Super Bowl or the college football Rose Bowl Game. This is
+                  because hundreds of thousands of people on the site are trying
+                  to buy stadium seats before they sell out. Ultra-fast bots
+                  also make it hard for people to buy tickets. This is because
+                  they buy out hundreds of spots only then to resell them on
+                  StubHub or Craigslist.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  What do I do with tickets I no longer need?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  There are few things that you can do with tickets you no
+                  longer need. First of all, you can always resell the tickets
+                  on sites like StubHub, Craigslist, SeatGeek, or VividSeats.
+                  There are many ticket reseller sites where you can try your
+                  luck to get rid of the tickets. On ticket resale platforms,
+                  you can raise prices as you see fair and post across
+                  marketplaces. Make sure to remove the tickets from wherever
+                  you posted them once you sell them to prevent a double sale.
+                  You can also give away tickets to your friends or family or
+                  post to sell or give away on social media.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--dfdfdf-->
+      <div class="row justify-content-evenly text-light px-3 py-5 bg-danger">
+        <div class="col-lg-auto text-center p-3">
+          <h3 class="mb-3">About Us</h3>
+          <span>History</span>
+          <br />
+          <span>Our Team</span><br />
+          <span>Brand Guidelines</span><br />
+          <span>Terms & Condition</span><br />
+          <span>Privacy Policy</span><br />
+        </div>
+        <div class="col-lg-auto text-center p-3">
+          <h3 class="mb-3">Services</h3>
+          <span>How to buy tickets</span>
+          <br />
+          <span>Become our vendor partner</span><br />
+          <span>Host Events</span><br />
+          <span>Payment Method</span><br />
+        </div>
+        <div class="col-lg-auto text-center p-3">
+          <h3>Leave a Message</h3>
+          <span class="mb-4"
+            >Fill the Review and complaints box<br />
+            if you face any technical error<br />
+            from our service.we will try<br />
+            our best to solve your issue.</span
+          >
+          <br />
+          <i
+            class="fa-sharp fa-solid fa-headset mx-2 my-3"
+            style="font-size: 30px; font-weight: bold"
+          ></i>
+          <i
+            class="fa-solid fa-handshake-angle"
+            style="font-size: 30px; font-weight: bold"
+          ></i>
+          <i
+            class="bi bi-heart-pulse-fill mx-2 my-3"
+            style="font-size: 30px; font-weight: bold"
+          ></i>
+        </div>
+      </div>
+      <div class="row bg-dark text-light">
+        <div class="col-12 my-2 text-center">
+          <p class="my-auto">
+            Copyright 1999-2021 by Tricket Enterprise.All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

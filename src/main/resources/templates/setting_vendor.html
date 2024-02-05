@@ -1,0 +1,158 @@
+<!--
+      Color:
+      ----------------
+      Primary:blue
+      secondary:gray
+      success: green
+      danger: red
+      warning: yellow
+      info: cyan
+      light: white
+      dark: black
+
+      Device size:::
+      ----------------------------
+            Extra small-None-<576px
+            phone-Small-sm-≥576px
+            tablet-Medium-md-≥768px
+             small laptop-Large-lg-≥992px
+             desktop-Extra large-xl-≥1200px
+             super computer,tv-Extra extra large-xxl-≥1400px
+             -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Vendor Profile</title>
+	<link rel="stylesheet" th:href="@{/css/pp.css}" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+	<script src="https://kit.fontawesome.com/112eea2fba.js" crossorigin="anonymous"></script>
+	<style>
+		.hh {
+			background-color: #383737;
+			border-radius: 20px;
+			transition: background-color 0.5s, transform 0.5s;
+		}
+
+		.hh:hover {
+			background-color: rgb(255, 255, 255);
+			color: #000000;
+			transform: translateY(-15px);
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg sticky-top" style="background-color: #006a4e">
+		<div class="container-fluid justify-content-between">
+			<a class="navbar-brand" th:href="@{/vendor/home}">
+				<img th:src="@{/images/aa.png}" title="Stadium Management" alt="Stadium Management" height="60px" width="170px" />
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse py-4 py-lg-0" id="navbarSupportedContent" style="font-weight: bold">
+				<ul class="navbar-nav ms-lg-5 me-auto">
+					<li class="nav-item">
+						<a class="nav-link active mx-lg-3 link-light" aria-current="page"
+							th:href="@{/vendor/home}">Home</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link active mx-lg-3 link-light" aria-current="page"
+							th:href="@{/logout}">Logout</a>
+					</li>
+
+				</ul>
+				<a th:href="@{/setting}" target="_parent"><i
+						class="fa-solid fa-circle-user me-4 fs-1 text-dark"></i></a>
+			</div>
+		</div>
+	</nav>
+	<!--dfdfdff-->
+	<div class="container1">
+		<h1 class="text-center mb-2">Vendor Profile</h1>
+		<div class="container mb-5">
+			<div class="card b mx-auto" style="width: 10rem">
+				<img th:src="@{/images/profile.png}" class="card-img-top a" alt="Your Name">
+			</div>
+		</div>
+
+		<div class="row g-3">
+			<div class="col-md-4">
+				<label for="vendorId">Vendor Id:</label>
+				<span id="vendorId" th:if="${user}" th:text="${user.vendorId}"></span>
+			</div>
+
+			<div class="col-md-4">
+				<label for="vendorName">Vendor Name:</label>
+				<span id="vendorName" th:if="${user}" th:text="${user.vendorName}"></span>
+			</div>
+
+			<div class="col-md-4">
+				<label for="companyName">Company Name:</label>
+				<span id="companyName" th:if="${user}" th:text="${user.companyName}"></span>
+			</div>
+
+			<div class="col-md-4">
+				<label for="address">Address:</label>
+				<span id="address" th:if="${user}" th:text="${user.address}"></span>
+			</div>
+
+			<div class="col-md-4">
+				<label for="mobileNo">Vendor Name:</label>
+				<span id="mobileNo" th:if="${user}" th:text="${user.mobileNo}"></span>
+			</div>
+
+			<div class="col-md-4">
+				<label for="email">Email address:</label>
+				<span id="email" th:if="${user}" th:text="${user.email}"></span>
+			</div>
+
+			<div class="col-md-4">
+				<label for="password">Password:</label>
+				<span id="password" th:if="${user}" th:text="${user.password}"></span>
+			</div>
+			<table class="table table-striped table-hover">
+		   					<thead>
+									<tr>
+										<th scope="col" class="text-primary">Gallery ID</th>
+										<th scope="col" class="text-primary">Gallery Name</th>
+										<th scope="col" class="text-primary">Gallery Location</th>
+										<th scope="col" class="text-primary">Gallery Capacity</th>
+										<th scope="col" class="text-primary">Program Name</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="g: ${gallerys}">
+										<th th:text="${g.gId}"></th>
+										<th th:text="${g.gName}"></th>
+										<th th:text="${g.gLocation}"></th>
+										<th th:text="${g.gCapacity}"></th>
+										<th
+											th:text="${g.program.eventTitle}"></th>
+								</tbody>
+		</table>
+
+			<div class="col-12">
+				<!-- Add a link to update the vendor profile -->
+				<a th:href="@{/vendor/setting/update/{id}(id=${user.vendorId})}">Update your Profile</a>
+			</div>
+		</div>
+	</div>
+
+
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

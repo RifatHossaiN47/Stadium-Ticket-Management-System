@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Login</title>
+    <link rel="stylesheet" th:href="@{/css/userstyle.css}" />
+    <script
+      src="https://kit.fontawesome.com/3c6c8ef5b8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="ab">
+        <i class="fa-solid fa-bars fa-3x" style="color: white"></i>
+      </div>
+      <div class="form-box">
+        <i class="fa-solid fa-user fa-3x"></i>
+        <h1>Login</h1>
+        <form action="/vendor/processing" method="post">
+          <div class="input-field">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" placeholder="Enter your mail" name="email" />
+          </div>
+          <div class="input-field">
+            <i class="fa-solid fa-lock"></i>
+            <input type="Password" placeholder="Enter your password" name="password" />
+          </div>
+          <div class="b">
+            <input type="checkbox" />
+            <p>Remember_me</p>
+            <a href="#">Forgotten_Password?</a>
+          </div>
+          <div class="my-4 text-danger">
+			<span class="text-danger my-3" style="color: red;" th:text="${failed}"></span>
+			</div>
+          <button type="submit" class="btn my-2">Login</button>
+          <div class="a">
+            <p>Don't have an account?</p>
+            <a th:href="@{/vendor/register}">SIGN UP</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

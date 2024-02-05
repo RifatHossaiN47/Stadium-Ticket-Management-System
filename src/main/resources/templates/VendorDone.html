@@ -1,0 +1,132 @@
+<!--
+      Color:
+      ----------------
+      Primary:blue
+      secondary:gray
+      success: green
+      danger: red
+      warning: yellow
+      info: cyan
+      light: white
+      dark: black
+
+      Device size:::
+      ----------------------------
+            Extra small-None-<576px
+            phone-Small-sm-≥576px
+            tablet-Medium-md-≥768px
+             small laptop-Large-lg-≥992px
+             desktop-Extra large-xl-≥1200px
+             super computer,tv-Extra extra large-xxl-≥1400px
+             -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tricket sports</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/112eea2fba.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .hh {
+        background-color: #383737;
+        border-radius: 20px;
+        transition: background-color 0.5s, transform 0.5s;
+      }
+      .hh:hover {
+        background-color: rgb(255, 255, 255);
+        color: #000000;
+        transform: translateY(-15px);
+      }
+      
+      .df{
+            min-height: calc(100vh - 87px);
+			}
+
+		.colmn{
+  		height: 600px;
+  		font-size: 30px;
+				}
+    </style>
+  </head>
+  <body>
+   <nav
+      class="navbar navbar-expand-lg sticky-top"
+      style="background-color: #006a4e"
+    >
+      <div class="container-fluid justify-content-between">
+        <a class="navbar-brand" th:href="@{/vendor/home}">
+          <img
+            src="aa.png"
+            title="Stadium Management"
+            alt="Stadium Management"
+            height="60px"
+            width="170px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse py-4 py-lg-0"
+          id="navbarSupportedContent"
+          style="font-weight: bold"
+        >
+          <ul class="navbar-nav ms-lg-5 me-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-danger"
+                aria-current="page"
+                th:href="@{/vendor/home}"
+                >Home</a
+              >
+            </li>
+            
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/logout}"
+                >Logout</a
+              >
+            </li>
+            
+          </ul>
+          <a th:href="@{/vendor/setting}" target="_parent"
+            ><i class="fa-solid fa-circle-user me-4 fs-1 text-dark"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <!--dfdfdff-->
+   <div class="container df justify-content-center align-item-center text-center">
+	   <h2 class="text-success mt-5">Your Occupied Gallery is added to your profile Successfully!!</h2>	
+   </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

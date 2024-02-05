@@ -1,0 +1,52 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.box {
+  background-color: rgb(104, 103, 102);
+  height: 25px;
+  width: 25px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.box1 {
+  /*background-color: rgb(104, 103, 102);*/
+  height: 25px;
+  width: 25px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.boxAvailable {
+  background-color: rgb(255, 255, 0);
+  height: 25px;
+  width: 25px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.boxg {
+  height: 30px;
+  width: 150px;
+  border-radius: 5px;
+  background-color: rgb(208, 12, 55);
+}
+
+.boxBooked {
+  background-color: rgb(255, 0, 0);
+  height: 25px;
+  width: 25px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.mybtn:checked+label {
+	background-color: rgb(255, 255, 0);
+	color: black;
+}
+
+.box1:checked+label {
+	background-color: red;
+	color: black;
+}

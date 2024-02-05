@@ -1,0 +1,222 @@
+<!--
+      Color:
+      ----------------
+      Primary:blue
+      secondary:gray
+      success: green
+      danger: red
+      warning: yellow
+      info: cyan
+      light: white
+      dark: black
+
+      Device size:::
+      ----------------------------
+            Extra small-None-<576px
+            phone-Small-sm-≥576px
+            tablet-Medium-md-≥768px
+             small laptop-Large-lg-≥992px
+             desktop-Extra large-xl-≥1200px
+             super computer,tv-Extra extra large-xxl-≥1400px
+             -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Customer Profile</title>
+    <link rel="stylesheet" th:href="@{/css/pp.css}"/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/112eea2fba.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .hh {
+        background-color: #383737;
+        border-radius: 20px;
+        transition: background-color 0.5s, transform 0.5s;
+      }
+      .hh:hover {
+        background-color: rgb(255, 255, 255);
+        color: #000000;
+        transform: translateY(-15px);
+      }
+    </style>
+  </head>
+  <body>
+     <nav
+      class="navbar navbar-expand-lg sticky-top"
+      style="background-color: #006a4e"
+    >
+      <div class="container-fluid justify-content-between">
+        <a class="navbar-brand" th:href="@{/home}">
+          <img
+            th:src="@{/images/aa.png}"
+            title="Stadium Management"
+            alt="Stadium Management"
+            height="60px"
+            width="170px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse py-4 py-lg-0"
+          id="navbarSupportedContent"
+          style="font-weight: bold"
+        >
+          <ul class="navbar-nav ms-lg-5 me-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/home}"
+                >Home</a
+              >
+            </li>
+            
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/order-history}"
+                >Cart</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active mx-lg-3 link-light"
+                aria-current="page"
+                th:href="@{/logout}"
+                >Logout</a
+              >
+            </li>
+            
+          </ul>
+          <a th:href="@{/setting}" target="_parent"
+            ><i class="fa-solid fa-circle-user me-4 fs-1 text-dark"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <!--dfdfdff-->
+    <div class="container1">
+        <h1 class="text-center mb-2">Customer Profile</h1>
+        <div class="container  mb-5">
+            <div class="card b mx-auto" style="width: 10rem">
+                <img th:src="@{/images/userPic.png}" class="img-fluid" alt="Your Name">
+            </div>
+          </div>
+          
+          
+        <div class="row justify-content-evenly fs-5" >
+			<div class="col-md-8 text-center mx-auto">
+              <label for="name" class="badge text-bg-warning">Customer Id:</label>
+							<span
+								id="name" th:if="${user}"
+								th:text="${user.customerId}"></span>
+						
+            </div>
+			
+           <div class="col-md-5 text-center m-3">
+              <label class="badge text-bg-info" for="name">Customer Name:</label>
+							<span
+								id="name" th:if="${user}"
+								th:text="${user.customerName}"></span>
+						
+            </div>
+            
+           <div class="col-md-5 text-center m-3">
+              <label for="dateOfBirth" class="badge text-bg-info" >Birth Date:</label>
+              <span
+								id="dateOfBirth" th:if="${user}"
+								th:text="${user.dateOfBirth}"></span>
+            </div>
+            
+            <div class="col-md-5 text-center m-3">
+              <label for="gender" class="badge text-bg-info">Gender:</label>
+              <span
+								id="gender" th:if="${user}"
+								th:text="${user.gender}"></span>
+            </div>
+            
+             <div class="col-md-5 text-center m-3">
+              <label for="mobileNo" class="badge text-bg-info">Mobile No:</label>
+             <span
+								id="mobileNo" th:if="${user}"
+								th:text="${user.mobileNo}"></span>
+            </div>
+            
+            <div class="col-md-5 m-3 text-center">
+              <label for="address" class="badge text-bg-info">Address:</label>
+              <span
+								id="address" th:if="${user}"
+								th:text="${user.address}"></span>
+            </div>
+            <hr/>
+            <div class="col-md-6 text-center">
+              <label for="email" class="badge text-bg-primary">Email address:</label>
+              <span
+								id="email" th:if="${user}"
+								th:text="${user.email}"></span>
+            </div>
+            <div class="col-md-6 text-center">
+              <label for="password" class="badge text-bg-danger">Password:</label>
+             <span
+								id="password" th:if="${user}"
+								th:text="${user.password}"></span>
+            </div>
+            
+            <div class="col-12 mt-3 pt-2">
+       					<a th:href="@{/setting/update/{id}(id=${user.customerId})}" class="btn btn-primary m-4">Update your Profile</a>
+            </div>
+          </div>
+
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

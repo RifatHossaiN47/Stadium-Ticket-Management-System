@@ -16,4 +16,4 @@ This is a ticket,vendor and event management project of stadiums online.Here cus
 
 Thank you!!
 ## Screenshots:
-![1](Screenshots/shot0.png)
+![1](Screenshots/Slide1.JPG)

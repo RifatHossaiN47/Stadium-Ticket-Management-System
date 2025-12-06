@@ -126,6 +126,8 @@ stadium-ticket_mngmnt-sys/
 │   │   │   │   ├── EventOrganizerService.java
 │   │   │   │   ├── StadiumService.java
 │   │   │   │   └── VendorService.java
+│   │   │   ├── util/                # Utility classes
+│   │   │   │   └── DatabaseConnectionTest.java
 │   │   │   └── StadiumTicketMngmntSysApplication.java
 │   │   └── resources/
 │   │       ├── application.properties          # Main config
@@ -164,8 +166,6 @@ stadium-ticket_mngmnt-sys/
 ├── mvnw, mvnw.cmd                   # Maven wrapper scripts
 ├── pom.xml                          # Maven configuration
 ├── .gitignore                       # Git ignore rules
-├── DEPLOYMENT_GUIDE.md              # Detailed deployment guide
-├── QUICK_START.md                   # Quick start instructions
 └── README.md                        # This file
 ```
 

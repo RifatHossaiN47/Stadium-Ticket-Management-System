@@ -9,10 +9,9 @@
 
 ## 🌐 Live Demo
 
-**🚀 Deployed Application:** [Coming Soon - Add your Railway URL here after deployment]
+**🚀 Deployed Application:** [https://stadium-ticket-management-system-production.up.railway.app/](https://stadium-ticket-management-system-production.up.railway.app/)
 
-> **Note:** After successfully deploying to Railway, replace the text above with your actual deployment URL.
-> Example: `https://your-app-name.up.railway.app`
+> The application is live and running on Railway with online MySQL database.
 
 ## 📋 Table of Contents
 
@@ -32,6 +31,7 @@
 ## ✨ Features
 
 ### 👤 Customer Features
+
 - User registration and authentication
 - Browse available programs and events
 - Real-time ticket availability checking
@@ -41,6 +41,7 @@
 - Submit reviews and complaints
 
 ### 🎪 Event Organizer Features
+
 - Organizer account management
 - Create and manage programs/events
 - Set ticket prices and availability
@@ -49,6 +50,7 @@
 - Handle customer complaints
 
 ### 🛒 Vendor Features
+
 - Vendor registration and profile
 - Gallery/booth booking system
 - Inventory management
@@ -56,6 +58,7 @@
 - Booking history
 
 ### 🏢 Stadium Management
+
 - Multi-stadium support
 - Gallery/section management
 - Capacity management
@@ -64,6 +67,7 @@
 ## 🛠️ Tech Stack
 
 ### Backend
+
 - **Framework:** Spring Boot 3.1.5
 - **Language:** Java 21 (compatible with Java 17)
 - **ORM:** Hibernate 6.2.13 (Spring Data JPA)
@@ -73,12 +77,14 @@
 - **Build Tool:** Maven 3.9+
 
 ### Frontend
+
 - **Template Engine:** Thymeleaf
 - **CSS:** Custom styles (pp.css, st.css, userstyle.css)
 - **JavaScript:** Vanilla JS
 - **UI:** Responsive design
 
 ### DevOps & Deployment
+
 - **Version Control:** Git & GitHub
 - **CI/CD:** Railway (automated deployments)
 - **Database Hosting:** Railway MySQL
@@ -166,6 +172,7 @@ stadium-ticket_mngmnt-sys/
 ## 📦 Prerequisites
 
 ### For Local Development:
+
 - **Java Development Kit (JDK):** 17 or 21
   ```powershell
   java -version  # Should show 17 or 21
@@ -179,6 +186,7 @@ stadium-ticket_mngmnt-sys/
 - **IDE:** IntelliJ IDEA, Eclipse, or VS Code (recommended)
 
 ### For Deployment:
+
 - **GitHub Account:** For code repository
 - **Railway Account:** For hosting (free tier available)
 
@@ -262,14 +270,15 @@ The application will start on: **http://localhost:8082**
 
 The application uses Spring profiles for different environments:
 
-| Profile | Purpose | Config File | Database |
-|---------|---------|-------------|----------|
-| `dev` | Local development | `application-dev.properties` | Local MySQL |
-| `prod` | Production deployment | `application-prod.properties` | Railway MySQL |
+| Profile | Purpose               | Config File                   | Database      |
+| ------- | --------------------- | ----------------------------- | ------------- |
+| `dev`   | Local development     | `application-dev.properties`  | Local MySQL   |
+| `prod`  | Production deployment | `application-prod.properties` | Railway MySQL |
 
 ### Key Configuration Properties
 
 **application.properties** (Main config):
+
 ```properties
 server.port=8082
 spring.profiles.active=prod
@@ -278,6 +287,7 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 **application-dev.properties** (Local):
+
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/stadium_management
 spring.datasource.username=root
@@ -285,6 +295,7 @@ spring.datasource.password=YOUR_LOCAL_PASSWORD
 ```
 
 **application-prod.properties** (Railway - NOT committed to Git):
+
 ```properties
 spring.datasource.url=jdbc:mysql://mainline.proxy.rlwy.net:35421/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
 spring.datasource.username=root
@@ -334,6 +345,7 @@ java -jar target/stadium-ticket_mngmnt-sys-0.0.1-SNAPSHOT.jar
 **1. Ensure .gitignore is properly configured**
 
 Verify your `.gitignore` includes:
+
 ```
 **/application-prod.properties
 *.env
@@ -356,6 +368,7 @@ git commit -m "Remove sensitive configuration files"
 **3. Set the active profile to 'prod'**
 
 In `src/main/resources/application.properties`:
+
 ```properties
 spring.profiles.active=prod
 ```
@@ -396,6 +409,7 @@ git push origin main
 **3. Verify Database Connection (Optional)**
 
 Test locally first:
+
 ```powershell
 # Update application-prod.properties with Railway credentials
 # Then run:
@@ -442,9 +456,11 @@ SERVER_PORT=8080
 ```
 
 **Important:** Railway uses port 8080 by default, but your app uses 8082. Add:
+
 ```
 PORT=8082
 ```
+
 Or modify your application to use Railway's `PORT` environment variable.
 
 **4. Link MySQL Service**
@@ -468,6 +484,7 @@ Or modify your application to use Railway's `PORT` environment variable.
 **6. Monitor Deployment**
 
 Watch the **"Deployments"** tab:
+
 - ⏳ Building... (2-5 minutes)
 - ⏳ Deploying...
 - ✅ **ACTIVE** (Success!)
@@ -485,6 +502,7 @@ If you see errors, check the **"Logs"** tab.
 **2. Test Your Application**
 
 Visit your URL and test:
+
 - ✅ Home page loads
 - ✅ Customer registration works
 - ✅ Login functionality works
@@ -494,6 +512,7 @@ Visit your URL and test:
 **3. Check Logs**
 
 In Railway dashboard:
+
 ```
 Started StadiumTicketMngmntSysApplication in X seconds
 ✅ DATABASE CONNECTION SUCCESSFUL!
@@ -507,6 +526,7 @@ Tomcat started on port(s): 8082
 **Error:** `Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin`
 
 **Solution:**
+
 - Ensure Java version matches in `pom.xml`
 - Add build command: `./mvnw clean install -DskipTests`
 
@@ -515,6 +535,7 @@ Tomcat started on port(s): 8082
 **Error:** `Communications link failure`
 
 **Solutions:**
+
 1. Verify MySQL service is **ACTIVE**
 2. Check environment variables are correctly set
 3. Ensure `MYSQLHOST` is public hostname (mainline.proxy.rlwy.net), not internal
@@ -526,10 +547,13 @@ Tomcat started on port(s): 8082
 
 **Solution:**
 Add environment variable:
+
 ```
 PORT=8080
 ```
+
 Or update your application to read Railway's PORT:
+
 ```properties
 server.port=${PORT:8082}
 ```
@@ -537,6 +561,7 @@ server.port=${PORT:8082}
 #### Issue 4: Application Crashes on Startup
 
 **Solutions:**
+
 1. Check logs in Railway dashboard
 2. Verify all required environment variables are set
 3. Test locally with production profile first
@@ -658,6 +683,7 @@ ReviewsAndComplaints
 ## 🔌 API Endpoints
 
 ### Customer Endpoints
+
 ```
 GET  /                          # Home page
 GET  /customer/register         # Registration form
@@ -675,6 +701,7 @@ POST /customer/update           # Update profile
 ```
 
 ### Event Organizer Endpoints
+
 ```
 GET  /organizer/register        # Registration form
 POST /organizer/register        # Register organizer
@@ -690,6 +717,7 @@ GET  /organizer/settings        # Account settings
 ```
 
 ### Vendor Endpoints
+
 ```
 GET  /vendor/register           # Registration form
 POST /vendor/register           # Register vendor
@@ -720,6 +748,7 @@ GET  /vendor/settings           # Account settings
 ### Manual Testing Checklist
 
 **Customer Flow:**
+
 1. Register new customer
 2. Login with credentials
 3. Browse programs
@@ -728,6 +757,7 @@ GET  /vendor/settings           # Account settings
 6. View purchased tickets
 
 **Organizer Flow:**
+
 1. Register as organizer
 2. Login
 3. Create new program
@@ -735,6 +765,7 @@ GET  /vendor/settings           # Account settings
 5. View sales dashboard
 
 **Vendor Flow:**
+
 1. Register as vendor
 2. Login
 3. Browse available galleries
@@ -775,6 +806,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Rifat Hossain**
+
 - GitHub: [@RifatHossaiN47](https://github.com/RifatHossaiN47)
 - Repository: [Stadium-Ticket-Management-System](https://github.com/RifatHossaiN47/Stadium-Ticket-Management-System)
 

@@ -12,6 +12,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
+DEPLOYMENT_GUIDE.md
 
 ### IntelliJ IDEA ###
 .idea
@@ -38,26 +39,11 @@ build/
 .env.local
 .env.production
 .env.development
+
+### Deployment guides (keep local only) ###
 DEPLOYMENT_GUIDE.md
 MIGRATION_SUMMARY.md
 RAILWAY_DEPLOYMENT_STEPS.md
 README_DEPLOYMENT.md
 VISUAL_GUIDE.md
 QUICK_START.md
-### Railway ###
-railway.json
-
-### Logs ###
-*.log
-logs/
-
-### OS ###
-.DS_Store
-Thumbs.db
-
-### Backup files ###
-*.sql
-*.backup
-
-### Maven wrapper (keep wrapper files) ###
-# Keeping .mvn/wrapper/ directory

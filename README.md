@@ -152,7 +152,7 @@ The application supports profile-based environments:
 
 ## 👤 Author
 
-**Rifat Hossain**
+**Md Rifat Hossen**
 - GitHub: [@RifatHossaiN47](https://github.com/RifatHossaiN47)
 - Repository: [Stadium-Ticket-Management-System](https://github.com/RifatHossaiN47/Stadium-Ticket-Management-System)
 
